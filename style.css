@@ -29,5 +29,9 @@
     #crd{
         text-align: center; width: 350px;border: none;
     }
+    .backgrounding{
+        background-image: url('images/bg.jpg');
+    
+    }
 
    
