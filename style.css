@@ -19,10 +19,12 @@
     }
     #poto{
         background-color: black;
-        height: 700px;
         margin: 45px;
         padding: 45px;
         padding-left: 100px;
+    }
+    #butt{
+        background-color: tomato;height:70px;width:250px;border-radius:0%;
     }
 
    
