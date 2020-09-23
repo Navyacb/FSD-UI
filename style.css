@@ -1,0 +1,21 @@
+
+	#block{
+            background-color:#8d1945;
+            float: left;
+            margin: 32px;
+            padding-top: 25px;
+            color: white;
+            padding-left: 80px;
+            padding-bottom: 25px;
+        }  
+
+    #list{
+        float: right;
+        padding-left: 360px;
+        padding-top: 50px;
+    }
+    #sign{
+        padding-top: 40px;
+    }
+
+   
