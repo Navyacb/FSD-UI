@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container" style="background-color:  rgba(246, 246, 246, 0.911);width: 600px;">
+            <div class="row text-center" style="padding:20px">
+            <div class="col-12 h1 logo">Login</div>
+            </div>
+            <div class="row text-center ">
+                <div class="col-3"></div>
+                <div class="col-7">
+                <form action="" name="myform" class="text-left">
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email Address: </label> 
+                            <input class="form-control" required type="email" name="email" id = "email"  onchange="email_validate(this.value);" />   
+                                <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><span class="req">* </span> Password: </label>
+                            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
+                     </div>
+                     <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customControlInline">
+                            <label class="custom-control-label" for="customControlInline">Remember me</label>
+                        </div>
+                    </div>
+                     <button type="submit" onclick="validate()" class="btn btn-primary btm-lg btn-block">Sign In</button>
+			      <div class="etc-login-form">
+                <p>Do not have an account? <a href="create account.html">Sign Up</a></p>
+                </div>
+                <div class="etc-login-form">
+                <a href="#">Forgot your password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="createacc.js"></script>
+    </body>
+</html>
