@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" style="background-color:  rgba(246, 246, 246, 0.911);width: 600px;">
+    <div class="row text-center" style="padding:20px">
+    <div class="col-12 h1 logo">Create Account</div>
+    </div>
+	<div class="row text-center ">
+        <div class="col-3"></div>
+        <div class="col-7">
+		<form action="" id="register-form" class="text-left">
+					<div class="form-group"> 	 
+                        <label for="firstname"><span class="req">* </span> First name: </label>
+                            <input class="form-control" type="text" name="firstname" id = "txt" onkeyup = "Validate(this)" required /> 
+                                <div id="errFirst"></div>    
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="lastname"><span class="req">* </span> Last name: </label> 
+                            <input class="form-control" type="text" name="lastname" id = "txt" onkeyup = "Validate(this)" placeholder="atleast single character" required />  
+                                <div id="errLast"></div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email Address: </label> 
+                            <input class="form-control" required type="text" name="email" id = "email"  onchange="email_validate(this.value);" />   
+                                <div class="status" id="status"></div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label> 
+                            <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />  
+                                <div id="errLast"></div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="password"><span class="req">* </span> Password: </label>
+                            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
+        
+                        <label for="password"><span class="req">* </span> Password Confirm: </label>
+                            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Enter again to validate"  id="pass2" onkeyup="checkPass(); return false;" />
+                                <span id="confirmMessage" class="confirmMessage"></span>
+                    </div>
+					
+					<div class="form-group login-group-checkbox">
+						<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+						<label for="male">male</label>
+						
+						<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+						<label for="female">female</label>
+					</div>
+					
+					<div class="form-group login-group-checkbox">
+						<input type="checkbox" class="" id="reg_agree" name="reg_agree">
+						<label for="reg_agree">i agree with <a href="#">terms</a></label>
+					</div>
+				<button type="button" class="btn btn-primary btm-lg btn-block">Sign Up</button>
+			<div class="etc-login-form">
+				<p>already have an account? <a href="#">login here</a></p>
+			</div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
