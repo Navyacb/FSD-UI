@@ -21,10 +21,23 @@ var regMail = /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{
 
     if(regMail.test(email) == false)
     {
-    document.getElementById("status").innerHTML    = "<span class='text-danger'>Email address is not valid yet.</span>";
+    document.getElementById("status").innerHTML = "<span class='text-danger'>Email address is not valid yet.</span>";
     }
     else
     {
     document.getElementById("status").innerHTML	= "<span class='text-success'>Thanks, you have entered a valid Email address!</span>";	
     }
+}
+function validate()
+{
+    console.log("enter");
+    var x = document.forms["myform"]["txt"].value;
+    console.log(x);
+    if(text == "")
+    {
+        alert("please enter valid name");
+        document.register.fname.focus();
+        return false;
+    }
+    return true;
 }
