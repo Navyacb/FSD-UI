@@ -1,11 +1,29 @@
 function returnFirstName(fn)
 {
-    return fn;
+    try
+    {
+        if (!isNaN(fn))
+        throw err;
+         return fn;
+    }
+    catch(err) 
+    {
+        return 'Please enter the valid first name';
+    }
 }
 
 function returnSecondName(sn)
 {
-    return sn;
+    try
+    {
+        if (!isNaN(sn))
+        throw err;
+         return sn;
+    }
+    catch(err) 
+    {
+        return 'Please enter the valid second name';
+    }
 }
 
 module.exports.fn=returnFirstName;
