@@ -38,21 +38,29 @@
 // }
 // Test('Hi I Am John');
 
-const os = require('os');
-let release=os.release();
-let platform=os.platform();
-let arc=os.arch();
-let hostName=os.hostname();
-let freeMem=os.freemem();
-let homeDir=os.homedir()
-let networkInterfaces=os.networkInterfaces();
-console.log(`${release} ${platform} ${arc} ${os.hostname()}`);
-console.log(`${os.freemem()}`);
-console.log(`${os.homedir()}`);
-console.log(`${os.userInfo()}`);
-console.log(`${os.uptime()}`);
-console.log(`${os.type()}`);
-console.log(`${os.release()}`);
-console.log(`${os.loadavg()}`);
-console.log(`${os.tmpdir()}`);
-console.log(`${os.totalmem()}`);
+// const os = require('os');
+// let release=os.release();
+// let platform=os.platform();
+// let arc=os.arch();
+// let hostName=os.hostname();
+// let freeMem=os.freemem();
+// let homeDir=os.homedir()
+// let networkInterfaces=os.networkInterfaces();
+// console.log(`${release} ${platform} ${arc} ${os.hostname()}`);
+// console.log(`${os.freemem()}`);
+// console.log(`${os.homedir()}`);
+// console.log(`${os.userInfo()}`);
+// console.log(`${os.uptime()}`);
+// console.log(`${os.type()}`);
+// console.log(`${os.release()}`);
+// console.log(`${os.loadavg()}`);
+// console.log(`${os.tmpdir()}`);
+// console.log(`${os.totalmem()}`);
+
+
+const EventEmitter = require('events');
+const emitter=new EventEmitter();
+emitter.addListener('messageLogged',function (){
+   console.log('messageLogged Event occurred');
+});
+emitter.emit('messageLogged');
