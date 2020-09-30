@@ -2,7 +2,7 @@ function returnFirstName(fn)
 {
     try
     {
-        if (!isNaN(fn))
+        if (!isNaN(fn)|| fn==null)
         throw err;
          return fn;
     }
@@ -16,7 +16,7 @@ function returnSecondName(sn)
 {
     try
     {
-        if (!isNaN(sn))
+        if (!isNaN(sn)||sn==null)
         throw err;
          return sn;
     }
