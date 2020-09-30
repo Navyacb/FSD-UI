@@ -26,15 +26,26 @@
 // let y=path.dirname('Full stack\Assignment\UI');
 // console.log(y);
 
-function Test(message)
-{
-    console.log(message);
-    setTimeout(Test1,200);
-    console.log('hello');
-}
-function Test1()
-{
-    console.log('Hi');
-}
-Test('Hi I Am John');
+// function Test(message)
+// {
+//     console.log(message);
+//     setTimeout(Test1,200);
+//     console.log('hello');
+// }
+// function Test1()
+// {
+//     console.log('Hi');
+// }
+// Test('Hi I Am John');
 
+const os = require('os');
+let release=os.release();
+let platform=os.platform();
+let arc=os.arch();
+let hostName=os.hostname();
+let freeMem=os.freemem();
+let homeDir=os.homedir()
+let networkInterfaces=os.networkInterfaces();
+console.log(`${release} ${platform} ${arc} ${os.hostname()}`);
+console.log(`${os.freemem()}`);
+console.log(`${os.homedir()}`);
