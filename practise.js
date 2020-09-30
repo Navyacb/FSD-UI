@@ -23,18 +23,18 @@
 // const path = require('path');
 // let x=path.parse(__filename);
 // console.log(x);
-// let y=path.dirname('/foo/bar/baz/asdf/quux');
+// let y=path.dirname('Full stack\Assignment\UI');
 // console.log(y);
 
-function myTest(message)
+function Test(message)
 {
     console.log(message);
-    setTimeout(myTest1,20000);
+    setTimeout(Test1,200);
     console.log('hello');
 }
-function myTest1()
+function Test1()
 {
     console.log('Hi');
 }
-myTest('Hi I Am John Doe ');
+Test('Hi I Am John');
 
