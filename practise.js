@@ -58,9 +58,19 @@
 // console.log(`${os.totalmem()}`);
 
 
-const EventEmitter = require('events');
+// const EventEmitter = require('events');
+// const emitter=new EventEmitter();
+// emitter.addListener('messageLogged',function (){
+//    console.log('messageLogged Event occurred');
+// });
+// emitter.emit('messageLogged');
+
+
+const EventEmitter=require('events');
 const emitter=new EventEmitter();
-emitter.addListener('messageLogged',function (){
-   console.log('messageLogged Event occurred');
-});
-emitter.emit('messageLogged');
+emitter.on('addTwoNum',(firstNum,secondNum)=>{
+    let result=firstNum+secondNum;
+    console.log(`addition of ${firstNum} and ${secondNum} is ${result} `);
+})
+
+emitter.emit('addTwoNum',100,56);
