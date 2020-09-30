@@ -72,5 +72,9 @@ emitter.on('addTwoNum',(firstNum,secondNum)=>{
     let result=firstNum+secondNum;
     console.log(`addition of ${firstNum} and ${secondNum} is ${result} `);
 })
-
+emitter.on('logMessage',(args1,args2)=>{
+    console.log(args1);
+    console.log(args2);
+})
+emitter.emit('logMessage',{id:1,name:'John Doe'},{id:2,name:'Marry Public'})
 emitter.emit('addTwoNum',100,56);
