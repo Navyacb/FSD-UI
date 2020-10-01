@@ -1,13 +1,13 @@
 const EventEmitter = require('events');
 class ReverseStr extends EventEmitter
 {
-    reverse(str){
+    reverse(message){
        let reversed = "";      
-        for (var i = str.length - 1; i >= 0; i--)
+        for (var i = message.length - 1; i >= 0; i--)
         {         
-            reversed += str[i];  
+            reversed += message[i];  
         }
-        console.log("The reversed string is "+reversed)     
+        console.log("The reversed string is "+reversed);     
         this.emit('messageLogged');
     }
 }
