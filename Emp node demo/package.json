@@ -1,0 +1,22 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Navyacb/UI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Navyacb/UI/issues"
+  },
+  "homepage": "https://github.com/Navyacb/UI#readme",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
