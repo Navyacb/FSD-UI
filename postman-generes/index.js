@@ -23,7 +23,7 @@ app.get('/api/generes/:id', (req, res) => {
 
 
 })
-app.get('/api/generes/:name', (req, res) => {
+app.get('/api/generes1/:name', (req, res) => {
         let name = String(req.params.name);
         console.log(name);
         const genre1= generes.find(c => c.name === name);
@@ -63,6 +63,18 @@ app.put('/api/generes/:id', (req, res) => {
     genre.name = req.body.name;
     console.log(genre.name);
     res.send(genre);
+});
+
+app.delete('/api/generes/:id', (req, res) => {
+    const genre = generes.find(c => c.id === parseInt(req.params.id));
+    if (!genre) {
+        return res.status(404).send('The genre with the given ID was not found.');
+    }
+    const index=generes.indexOf(genre);
+    generes.splice(index, 1);
+    res.send(genre);
+
+
 });
 
 let port=process.env.PORT || 3000;
