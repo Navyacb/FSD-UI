@@ -5,7 +5,7 @@ app.use(express.json());
 let movies=[
     {id:1,name: 'Sipderman',rating:3},
     {id:2,name: 'Batman',rating:5},
-    {id:3,name: 'Little Women',rating:4}
+    {id:3,name: 'Little Women',rating:5}
 ];
 app.get('/api/movies', (req, res) => {
     res.send(movies);
@@ -43,7 +43,7 @@ app.post('/api/movies', (req, res) => {
     const movie = {
         id: movies.length + 1,
         name: req.body.name,
-        rating:req.body.rating
+        rating: req.body.rating
     };
     movies.push(movie);
     res.send(movie);
@@ -57,6 +57,7 @@ app.put('/api/movies/:id', (req, res) => {
     if (error) return res.status(400).send(error.details[0].message);
     console.log(movie.name);
     movie.name = req.body.name;
+    movie.rating = req.body.rating;
     console.log(movie.name);
     res.send(movie);
 });
@@ -79,7 +80,8 @@ app.listen(port, function(){
 
 function validatemovies(movie) {
     const schema = {
-        name: Joi.string().min(2).required()
+        name: Joi.string().min(2).required(),
+        rating: Joi.parseInt.require()
     };
 
     return Joi.validate(movie, schema);
