@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Add To-DO List</title>
+    <!-- <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css"> -->
+</head>
+
+<body>
+    <div class="container"style="background-color: rgba(246, 246, 246, 0.911); width: 600px;">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="h1 text-dark ">Add To-DO List </div>
+        </div>
+        <div class="row">
+            <form action="" name="myform" class="text-left">
+                <div class="form-group"> 	 
+                    <label for="name"><span class="req">* </span> Name: </label>
+                        <input class="form-control" type="text" placeholder="minimum 5 letters"name="firstname"  id = "txt"  required /> 
+                </div>
+                <div class="form-group"> 	 
+                    <label for="id"><span class="req">* </span> To-do Id: </label>
+                        <input class="form-control" type="number"   required /> 
+                </div>
+            <div class="form-group login-group-checkbox">
+            <label style="float:left;"><input type="checkbox" >Completed</label>
+            <label style="float:left;"><input type="checkbox" >Not-Completed</label>
+            </div>
+            <button type="submit">Sumbit</button>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>
