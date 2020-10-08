@@ -74,17 +74,36 @@ async function getStudents()
 //     console.log('Error with finding student')
 // });
 
-async function findStudentbyName(name) {
-    await Student.find({firstName: name}).then(function (result) {
-        console.log('Display Student details with name'+ result);
-    })
-        .catch(error => {
-            console.log('Student not found');
-        })
-}
-findStudentbyName('John').then(()=>{
-    console.log('finished finding student')
+// async function findStudentbyName(name) {
+//     await Student.find({firstName: name}).then(function (result) {
+//         console.log('Display Student details with name'+ result);
+//     })
+//         .catch(error => {
+//             console.log('Student not found');
+//         })
+// }
+// findStudentbyName('John').then(()=>{
+//     console.log('finished finding student')
 
-}).catch(reason => {
-    console.log('Error with finding student')
-});
+// }).catch(reason => {
+//     console.log('Error with finding student')
+// });
+
+async function findByFirstName(firstName) {
+    /* let result = await Student.find({firstName: firstName})
+         .select('firstName lastName')
+         console.log('Student found:', result);*/
+ 
+     let result = await Student.find()
+         .select('firstName lastName')
+    // .sort('firstName');
+         .sort({firstName:1});
+     console.log('Student found:', result);
+ 
+ }
+ 
+ findByFirstName('John').then(function () {
+ 
+ }).catch(reason => {
+ 
+ });
