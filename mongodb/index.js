@@ -17,9 +17,9 @@ const studentSchema=new mongoose.Schema(
 
 const Student=mongoose.model('Student',studentSchema);
 // let student=new Student({
-//     firstName: 'Marry',
-//     lastName: 'Public',
-//     email: 'marry@email.com'
+//     firstName: 'John',
+//     lastName: 'Lu',
+//     email: 'jlu@email.com'
 // });
 // async function createStudent()
 // {
@@ -42,32 +42,47 @@ async function getStudents()
     console.log('called getStudents()');
 }
 
-// async function run()
+// // async function run()
+// // {
+// //     getStudents().then(function(){
+// //         console.log('called run function');
+// //     }).catch(error => {
+// //         console.log(error.message);
+// //     })
+// // }
+// // run().then(function () {
+// //     console.log('finished running');
+
+// // }).catch(error => {
+// //     console.log(error.message);
+
+// // });
+// async function findStudentByID(id)
 // {
-//     getStudents().then(function(){
-//         console.log('called run function');
+//     await Student.findById(id).then(function (result) {
+//         console.log('Student found:',result);
+    
 //     }).catch(error => {
-//         console.log(error.message);
-//     })
+//         console.log('Error finding student with ID: ',id);
+//     });
 // }
-// run().then(function () {
-//     console.log('finished running');
 
-// }).catch(error => {
-//     console.log(error.message);
+// findStudentByID('5f7eafc633b1e92948949061').then(()=>{
+//     console.log('finished finding student')
 
+// }).catch(reason => {
+//     console.log('Error with finding student')
 // });
-async function findStudentByID(id)
-{
-    await Student.findById(id).then(function (result) {
-        console.log('Student found:',result);
 
-    }).catch(error => {
-        console.log('Error finding student with ID: ',id);
-    });
+async function findStudentbyName(name) {
+    await Student.find({firstName: name}).then(function (result) {
+        console.log('Display Student details with name'+ result);
+    })
+        .catch(error => {
+            console.log('Student not found');
+        })
 }
-
-findStudentByID('5f7eafc633b1e92948949061').then(()=>{
+findStudentbyName('John').then(()=>{
     console.log('finished finding student')
 
 }).catch(reason => {
