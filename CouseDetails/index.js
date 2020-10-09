@@ -72,12 +72,26 @@ async function readData() {
     });
 
 }
+async function getCourses() {
+    let result=await Course.find({name: 'spring'})
+        .and([{price:{$lte: 15}}])
+    console.log(result);
+}
 
 
-readData().then(function (){
-    console.log('successfully done');
+
+getCourses().then(function (){
+    console.log('Success')
 }).catch(reason => {
-    console.log('failed',reason.message);
+    console.log('Failure');
 });
+
+
+// readData().then(function (){
+//     console.log('successfully done');
+// }).catch(reason => {
+//     console.log('failed',reason.message);
+// });
+
 
 
