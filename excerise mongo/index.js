@@ -60,16 +60,27 @@ updateCourse('5f7ff1028abe7c16e32b8b90').then(()=>{
 });*/
 //update first : use course.update
 //update many : use course.updateMany
-async function updateCourse()
+// async function updateCourse()
+// {
+//     const result = await Course.updateMany({ author: 'Mosh' }, {
+//         $set: { name: 'Learning Karate'}
+
+
+// });
+//     console.log('course update success');
+// }
+
+// updateCourse().then(() =>{
+//     console.log('success');
+// } );
+async function updateCourse(id)
 {
-    const result = await Course.updateMany({ author: 'Mosh' }, {
-        $set: { name: 'Learning Karate'}
-
-
-});
-    console.log('course update success');
+    let course = await Course.findByIdAndUpdate({_id: id}, {
+       $set: {name: 'Learning Angular', author: 'Mr. Balaguruswamy'}
+    },{new:false});
+    console.log(course);
 }
 
-updateCourse().then(() =>{
+updateCourse('5a6900fff467be65019a9001').then(() => {
     console.log('success');
-} );
+})
