@@ -51,9 +51,13 @@ router.put('/:id', async (req, res) => {
         return res.status(404).send('The customer with the given ID was not found.');
     }
     res.send(customer);
-
-
 });
+
+router.put('/:id', async (req, res) => {
+        const customer = await Customer.findOneAndUpdate({_id=req.params.id},{name:req.params.name},{new:true});
+            $set:{name:req.params.name}
+        });
+   
 
 
 function validateCustomer(customer) {
