@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-        const customer = await Customer.findOneAndUpdate({_id=req.params.id},{name:req.params.name},{new:true});
+        const customer = await Customer.findOneAndUpdate({_id:req.params.id},{name:req.params.name},{new:true});
             $set:{name:req.params.name}
         });
    
