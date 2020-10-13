@@ -1,0 +1,26 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    title #{titleView}
+    link(rel='stylesheet' href='/css/main.css')
+    link(rel='stylesheet' href='/css/product.css')
+header.main-header
+    nav.main-header__nav
+        ul.main-header__item-list
+            li.main-header__item
+                a.active(href='/') Users
+            li.main-header__item
+                a(href='/admin/add-users') Add Users
+main
+    if (prods.length >0)
+                .grid
+                    each product in prods
+                        article.card.product-item
+                            header.card__header
+                                h1.product__title #{product.title}
+                            .card__image
+                                img(src='/images/first.jpg' alt='A Book')
+    else
+        h1 No Products are Available Now Come Back And Check Again!!!!
