@@ -19,6 +19,8 @@ html(lang='en')
     main
       form.product-form(action='/admin/add-users' method='POST')
         .form-control
-          label(for='title') Name
-          input#title(type='text' name='title')
+          label(for='title')
+            span.req * 
+            |  Name:
+          input#title(type='text' name='title' placehoder='enter minimum 5 chracters' minlength='5')
         button.btn(type='submit') Add User
