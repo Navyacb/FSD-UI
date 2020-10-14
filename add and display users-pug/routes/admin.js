@@ -1,19 +1,16 @@
 const path = require('path');
-
 const express = require('express');
-
 const rootDir = require('../util/path');
-
 const router = express.Router();
-const users=[];
-router.get('/add-users', (req, res, next) => {
-  res.render('add-users',{pageTitle: 'add-users'});
+const products=[];
+router.get('/add-user', (req, res, next) => {
+  res.render('add-user',{pageTitle: 'Add User',activeAddUser: true});
 });
 
-router.post('/add-users', (req, res, next) => {
-  users.push({title:req.body.title});
+router.post('/add-user', (req, res, next) => {
+  products.push({title:req.body.title})
   res.redirect('/');
 });
 
-module.exports.routes = router;
-module.exports.users = users;
+module.exports.router = router;
+module.exports.products = products;
