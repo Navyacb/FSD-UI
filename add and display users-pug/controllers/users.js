@@ -1,14 +1,27 @@
 const Product = require('../models/user');
-exports.getAddUser=(req, res)=>
-{
-    res.render('add-user', {pageTitle: 'Add User', path: '/admin/add-user'});
-}
-exports.postAddUser = (req, res) => {
-    products.push({ title: req.body.title });
-    product.save();
-    res.redirect('/');
+
+exports.getAddUser = (req, res, next) => {
+  res.render('add-user', {
+    pageTitle: 'Add User',
+    path: '/admin/add-user',
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true
+  });
 };
-exports.getProducts = (req, res) => {
-    const products = Product.fetchAll();
-    res.render('user', {prods: products, pageTitle: 'User', path: '/'});
+
+exports.postAddUser = (req, res, next) => {
+  const product = new Product(req.body.title);
+  product.save();
+  res.redirect('/');
+};
+
+exports.getProducts = (req, res, next) => {
+  Product.fetchAll(products => {
+    res.render('user', {
+      prods: products,
+      pageTitle: 'User',
+      path: '/'
+    });
+  });
 };
