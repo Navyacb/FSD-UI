@@ -1,0 +1,33 @@
+<%- include('includes/head.ejs') %>
+</head>
+<script type="text/javascript" src="/javascripts/common.js"></script>
+  <body class="container-fluid">
+  <%- include('includes/header.ejs') %>
+  <h1>Welcome to PixoGram :-)</h1>
+  <h3>You can connect to people, Like Share Post !!!! </h3>
+  <h5>To create a new Account please click on Register and to Sign up please do click on Login.</h5>
+  <p><%= data.token %></p>
+  <% if (!!data.user) { %>
+  <div>
+      <img src="data:image/<%=data.user.profilepicture.contentType%>;base64,
+                     <%=data.user.profilepicture.imgdata.toString('base64')%>" width="300" height="250">
+      <div>
+        <p><%= data.user.firstname %></p>
+        <p><%= data.user.lastname %></p>
+
+
+
+
+        <button onClick="getFollowers('<%=data.user._id%>')" >Get Followers </button>
+        <button onClick="deleteFollowers('<%=data.user._id%>')">Delete Followers </button>
+
+          <div>
+              <p><b id='result'></b></p>
+          </div>
+      </div>
+    </div>
+  <%
+  }
+  %>
+   </body>
+</html>
