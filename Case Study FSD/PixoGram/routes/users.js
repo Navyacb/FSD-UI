@@ -47,7 +47,7 @@ router.post('/add-user',uploader.single('profilePicture'), async (req, res) => {
         password: passwrd,
 
         profilepic: {
-          imgdata: new Buffer.from(fs.readFileSync(req.file.path), 'base64'),
+          imgdata: new Buffer.from(fs.readFileSync(req.file), 'base64'),
           contentType: req.file.mimetype
         }
 
