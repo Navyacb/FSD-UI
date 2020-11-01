@@ -13,12 +13,9 @@
 </head>
 <body class="container-fluid">
 <%- include('includes/header.ejs') %>
-<div class="row">
-    <div class="col-md-4">
-        <%- include('includes/navigation.ejs') %>
-    </div>
+<!-- <div class="row"> -->
     <div id="pageContent" class="pageContent">
-        <div class="container">
+        <div class="container" style="width: 600px;">
             <div class="row text-center" style="padding:20px">
             <div class="col-12 h1 logo">Login</div>
             </div>
@@ -45,11 +42,11 @@
                      </div>
                      <button type="submit" onclick="validate()" class="btn btm-lg btn-secondary ">Sign In</button>
                   <div class="etc-login-form">
-                <p>Do not have an account? <a routerLink="/register">Sign Up</a></p>
+                <p>Do not have an account? <a href="/users/register">Sign Up</a></p>
                 </div>
-                <div class="etc-login-form">
+                <!-- <div class="etc-login-form">
                 <a href="#">Forgot your password?</a>
-                </div>
+                </div> -->
             </form>
         </div>
         </div>

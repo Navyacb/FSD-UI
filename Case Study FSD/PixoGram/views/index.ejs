@@ -1,11 +1,13 @@
 <%- include('includes/head.ejs') %>
 </head>
 <script type="text/javascript" src="/javascripts/common.js"></script>
-  <body class="container-fluid">
+  <body >
   <%- include('includes/header.ejs') %>
+  <div class="containter-fuild" style="margin-top: 100px; margin-left: 30px;">
   <h1>Welcome to PixoGram :-)</h1>
   <h3>You can connect to people, Like Share Post !!!! </h3>
   <h5>To create a new Account please click on Register and to Sign up please do click on Login.</h5>
+</div>
   <p><%= data.token %></p>
   <% if (!!data.user) { %>
   <div>
