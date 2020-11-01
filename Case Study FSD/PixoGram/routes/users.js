@@ -18,7 +18,7 @@ res.render('login', {data:{ titleView: 'Login Page'}});
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('resgister', {data:{ titleView: 'Register'}});
+  res.render('register', {data:{ titleView: 'Register'}});
 });
 
 

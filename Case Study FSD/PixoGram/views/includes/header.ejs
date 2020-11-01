@@ -8,7 +8,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav h5" style="padding-left: 1100px;">
+            <ul class="navbar-nav h5" style="padding-left: 700px;">
              <li class="col-4 active nav-item "><a class="nav-link" href="/">Home</a></li>
              <% if (!!data.user) { %>
                 <li class="col-4 active nav-item "><a class="nav-link" href="/account/update">Account</a></li>
@@ -17,8 +17,8 @@
                 <li class="col-4 active nav-item "><a class="nav-link" href="/media/<%= data.user._id %>">My Media</a></li>
              <% }
              else { %>
-              <li class="col-4 active nav-item "><a class="nav-link" href="/users/login">Register</a></li>
-              <li class="col-4 active nav-item "><a class="nav-link"  href="/users/signup" >Login</a></li>
+              <li class="col-4 active nav-item "><a class="nav-link" href="/users/register">Register</a></li>
+              <li class="col-4 active nav-item "><a class="nav-link"  href="/users/login" >Login</a></li>
             <%}%>
             </ul>
             </div>
