@@ -1,0 +1,29 @@
+<div class="headerbar">
+    <div class="row">
+      <div class="headerTitle">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fontBold navHeaderLine" >
+          <div class="container-fluid">
+            <a class="navbar-brand text-white"  href="#" style="padding-left: 40px;"><h1>PixoGram</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav h5" style="padding-left: 1100px;">
+             <li class="col-4 active nav-item "><a class="nav-link" href="/">Home</a></li>
+             <% if (!!data.user) { %>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/account/update">Account</a></li>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/followers/ <%= data.user._id %>">Followers</a></li>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/upload/<%= data.user._id %>">Upload</a></li>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/media/<%= data.user._id %>">My Media</a></li>
+             <% }
+             else { %>
+              <li class="col-4 active nav-item "><a class="nav-link" href="/users/login">Register</a></li>
+              <li class="col-4 active nav-item "><a class="nav-link"  href="/users/signup" >Login</a></li>
+            <%}%>
+            </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>

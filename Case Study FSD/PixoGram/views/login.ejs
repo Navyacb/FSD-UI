@@ -1,0 +1,59 @@
+<%- include('includes/head.ejs') %>
+    <script type="text/javascript">
+        function validateDetails()
+        {
+            try {
+            } catch(err)
+            {
+            }
+            alert("Inside");
+            //return false;
+        }
+    </script>
+</head>
+<body class="container-fluid">
+<%- include('includes/header.ejs') %>
+<div class="row">
+    <div class="col-md-4">
+        <%- include('includes/navigation.ejs') %>
+    </div>
+    <div id="pageContent" class="pageContent">
+        <div class="container">
+            <div class="row text-center" style="padding:20px">
+            <div class="col-12 h1 logo">Login</div>
+            </div>
+            <div class="row text-center ">
+                <div class="col-3">
+                    <% if (data.error) { %>
+                    <%= data.error %>
+                    <% } %></div>
+                <div class="col-7">
+                <form id="form1" name="form1" method="POST" action='/users/login' class="text-left">
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email Address: </label> 
+                            <input class="form-control" required type="email" name="email" id = "email"  onchange="email_validate(this.value);" />   
+                                <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username"><span class="req">* </span> User Name: </label> 
+                            <input class="form-control" required type="username" name="user" id = "user"  onchange="username_validate(this.value);" />   
+                                <div class="status" id="status"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><span class="req">* </span> Password: </label>
+                            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> 
+                     </div>
+                     <button type="submit" onclick="validate()" class="btn btm-lg btn-secondary ">Sign In</button>
+                  <div class="etc-login-form">
+                <p>Do not have an account? <a routerLink="/register">Sign Up</a></p>
+                </div>
+                <div class="etc-login-form">
+                <a href="#">Forgot your password?</a>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+.nav-item .dropdown-menu li a {
+    color: #343a40;
+    font-size:15px;
+    font-weight:bold;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #d3d3d3 !important;
+}
+.dropdown-item.active{
+    color: #fff;
+    background-color: grey;
+}
+.navHeaderLine {
+    margin-left:-16px;
+    padding: 25px 10px;
+}
+.headerbar{
+    width:100%;
+    top: 0;}
+
+
+    .pageContent {
+        padding-top:135px;
+     }

@@ -17,6 +17,7 @@
   "homepage": "https://github.com/Navyacb/UI#readme",
   "description": "",
   "dependencies": {
+    "@angular/cli": "^10.2.0",
     "mongoose": "^5.10.8"
   }
 }
