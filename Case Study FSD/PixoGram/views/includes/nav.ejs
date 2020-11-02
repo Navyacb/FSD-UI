@@ -9,16 +9,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav h5" style="padding-left: 1000px;">
-             <li class="col-4 active nav-item "><a class="nav-link" href="/">Home</a></li>
+             <li class="col-2 active nav-item "><a class="nav-link" href="/">Home</a></li>
              <% if (!!data.customer) { %>
-                <li class="col-4 active nav-item "><a class="nav-link" href="/account/update">Account</a></li>
-                <li class="col-4 active nav-item "><a class="nav-link" href="/followers/ <%= data.customer._id %>">Followers</a></li>
-                <li class="col-4 active nav-item "><a class="nav-link" href="/upload/<%= data.customer._id %>">Upload</a></li>
-                <li class="col-4 active nav-item "><a class="nav-link" href="/media/<%= data.customer._id %>">My Media</a></li>
+                <li class="col-2 active nav-item "><a class="nav-link" href="/account/update">Account</a></li>
+                <li class="col-2 active nav-item "><a class="nav-link" href="/followers/ <%= data.customer._id %>">Followers</a></li>
+                <li class="col-2 active nav-item "><a class="nav-link" href="/upload/<%= data.customer._id %>">Upload</a></li>
+                <li class="col-3 active nav-item "><a class="nav-link" href="/media/<%= data.customer._id %>">My Media</a></li>
              <% }
              else { %>
-              <li class="col-4 active nav-item "><a class="nav-link" href="/users/login">LogIn</a></li>
-              <li class="col-4 active nav-item "><a class="nav-link"  href="/users/signup" >Resgister</a></li>
+              <li class="col-2 active nav-item "><a class="nav-link" href="/users/login">LogIn</a></li>
+              <li class="col-2 active nav-item "><a class="nav-link"  href="/users/signup" >Register</a></li>
             <%}%>
             </ul>
             </div>
