@@ -1,0 +1,80 @@
+<%- include('includes/head.ejs') %>
+    <script type="text/javascript">
+        function validateDetails()
+        {
+            try {
+                let pwd = document.forms["form1"]["passwd"].value;
+                let cnfpwd = document.forms["form1"]["confirmPassword"].value;
+                if(pwd!=cnfpwd) {
+                    alert("Please check the Passowrd and confirm password");
+                    return false;
+                }
+            } catch(err)
+            {
+                alert("Inside error"+err);
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <%- include('includes/nav.ejs') %>
+               <div id="pageContent" class="pageContent">
+                    <div class="container ">
+                    <div class="row text-center" style="padding:20px">
+                    <div class="col-12 h1 logo">Create Account</div>
+                    </div>
+                    <% if (data.error) { %>
+                        <%= data.error %>
+                        <% } %>
+                    <div class="row text-center ">
+                        <div class="col-3"></div>
+                        <div class="col-7">
+                        <form id="form1" name="form1" method ="POST" action="/users/add-user" enctype="multipart/form-data" class="text-left">
+                                    <div class="form-group"> 	 
+                                        <label for="firstName"><span class="req">* </span> First Name: </label>
+                                            <input type="text" class="form-control" id="firstName" name="firstName" required="true" placeholder="First Name"> 
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label for="lastName"><span class="req">* </span> Last Name: </label> 
+                                            <input type="text" class="form-control" id="lastName" name="lastName" required="true" placeholder="Last Name"/>  
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label for="email"><span class="req">* </span> Email Address: </label> 
+                                            <input type="email" class="form-control" id="email" name="email" required="true" placeholder="Email ID"/>   
+                                              
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label for="userName"><span class="req">* </span> User name:  <small class="text-muted">(This will be your login user name)</small> </label> 
+                                            <input type="text" class="form-control" id="userName" name="userName" pattern="^[A-Za-z][A-Za-z0-9 -]+$" minlength=8 maxlength=10 required="true" placeholder="User Name"/>  
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label  for="passwd"><span class="req">* </span> Password: </label>
+                                            <input type="password" class="form-control" id="passwd" name="passwd" required="true" pattern="^[A-Za-z0-9#%$! -]+$" placeholder="Password"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword"><span class="req">* </span> Confirm Password: </label>
+                                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required="true" pattern="^[A-Za-z0-9#%$! -]+$" placeholder="Confirm Password"/>
+                
+                                    </div> 
+                                    <div class="form-group">
+                                        <label for="profilePicture">Profile Picture: &nbsp;&nbsp;&nbsp;</label>
+                                        <input type="file" class="form-control" id="profilePicture" name="profilePicture" required="true" placeholder="Profile picture"/>
+                                    </div>
+                                    <div class="form-group">
+                                    <button type="reset" value="Reset" class="btn btm-lg btn-secondary"style="margin-right:30px;">Reset</button>
+                                    <button type="submit"  onclick="validateDetails()" class="btn btm-lg btn-secondary ">Submit</button>
+                                </div>
+                                <p>Already have an account? <a  href="/users/login">login here</a></p>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+     </body>
+</html>
