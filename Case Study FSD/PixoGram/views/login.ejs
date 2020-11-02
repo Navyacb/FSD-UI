@@ -26,19 +26,15 @@
                 <div class="col-3"></div>
                 <div class="col-7">
                 <form id="form1" name="form1" method="POST" action='/users/login' class="text-left">
+            
                     <div class="form-group">
-                        <label for="email"><span class="req">* </span> Email Address: </label> 
-                            <input class="form-control" required type="email" name="email" id = "email"  onchange="email_validate(this.value);" />   
+                        <label for="loginId"><span class="req">* </span> User Name: </label> 
+                            <input type="text" class="form-control" id="loginId" name="loginId" pattern="^[A-Za-z][A-Za-z0-9 -]+$" required="true" placeholder="Login Id"/>   
                                 <div class="status" id="status"></div>
                     </div>
                     <div class="form-group">
-                        <label for="username"><span class="req">* </span> User Name: </label> 
-                            <input class="form-control" required type="username" name="user" id = "user"  onchange="username_validate(this.value);" />   
-                                <div class="status" id="status"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password"><span class="req">* </span> Password: </label>
-                            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> 
+                        <label for="passwd"><span class="req">* </span> Password: </label>
+                            <input type="password" class="form-control" id="passwd" name="passwd" pattern="^[A-Za-z0-9#%$! -]+$" required="true" placeholder="Password"/> 
                      </div>
                      <button type="submit" onclick="validateDetails()" class="btn btm-lg btn-secondary ">Sign In</button>
                   <div class="etc-login-form">

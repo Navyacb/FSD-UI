@@ -6,7 +6,7 @@
                 let pwd = document.forms["form1"]["passwd"].value;
                 let cnfpwd = document.forms["form1"]["confirmPassword"].value;
                 if(pwd!=cnfpwd) {
-                    alert("Password and confirm Password should be same");
+                    alert("Please check the Passowrd and confirm password");
                     return false;
                 }
             } catch(err)
@@ -31,43 +31,44 @@
                     <div class="row text-center ">
                         <div class="col-3"></div>
                         <div class="col-7">
-                        <form id="form1" name="form1" method ="POST" action="/users/add-user"  class="text-left">
+                        <form id="form1" name="form1" method ="POST" action="/users/add-user" enctype="multipart/form-data" class="text-left">
                                     <div class="form-group"> 	 
-                                        <label for="firstname"><span class="req">* </span> First Name: </label>
-                                            <input class="form-control" type="text" name="firstname"  id = "txt"  required /> 
+                                        <label for="firstName"><span class="req">* </span> First Name: </label>
+                                            <input type="text" class="form-control" id="firstName" name="firstName" required="true" placeholder="First Name"> 
                                     </div>
                         
                                     <div class="form-group">
-                                        <label for="lastname"><span class="req">* </span> Last Name: </label> 
-                                            <input class="form-control" type="text" name="lastname" id = "txt"  placeholder="atleast single character" required />  
+                                        <label for="lastName"><span class="req">* </span> Last Name: </label> 
+                                            <input type="text" class="form-control" id="lastName" name="lastName" required="true" placeholder="Last Name"/>  
                                     </div>
                         
                                     <div class="form-group">
                                         <label for="email"><span class="req">* </span> Email Address: </label> 
-                                            <input class="form-control" required type="email" name="email" id = "email" />   
-                                                <div class="status" id="status"></div>
+                                            <input type="email" class="form-control" id="email" name="email" required="true" placeholder="Email ID"/>   
+                                              
                                     </div>
                         
                                     <div class="form-group">
-                                        <label for="username"><span class="req">* </span> User name:  <small class="text-muted">(This will be your login user name)</small> </label> 
-                                            <input class="form-control" type="text" name="username" id = "txt"  placeholder="minimum 6 letters" required />  
+                                        <label for="userName"><span class="req">* </span> User name:  <small class="text-muted">(This will be your login user name)</small> </label> 
+                                            <input type="text" class="form-control" id="userName" name="userName" pattern="^[A-Za-z][A-Za-z0-9 -]+$" minlength=8 maxlength=10 required="true" placeholder="User Name"/>  
                                     </div>
                         
                                     <div class="form-group">
-                                        <label for="password"><span class="req">* </span> Password: </label>
-                                            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" />
-                        
-                                        <label for="password"><span class="req">* </span> Password Confirm: </label>
-                                            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Enter again to validate"  id="pass2" onkeyup="checkPass();" />
-                                                <span id="confirmMessage" class="confirmMessage"></span>
+                                        <label  for="passwd"><span class="req">* </span> Password: </label>
+                                            <input type="password" class="form-control" id="passwd" name="passwd" required="true" pattern="^[A-Za-z0-9#%$! -]+$" placeholder="Password"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword"><span class="req">* </span> Confirm Password: </label>
+                                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required="true" pattern="^[A-Za-z0-9#%$! -]+$" placeholder="Confirm Password"/>
+                
                                     </div> 
                                     <div class="form-group">
-                                        <label>Profile Picture: &nbsp;&nbsp;&nbsp;</label>
+                                        <label for="profilePicture">Profile Picture: &nbsp;&nbsp;&nbsp;</label>
                                         <input type="file" class="form-control" id="profilePicture" name="profilePicture" required="true" placeholder="Profile picture"/>
                                     </div>
                                     <div class="form-group">
                                     <button type="reset" value="Reset" class="btn btm-lg btn-secondary"style="margin-right:30px;">Reset</button>
-                                    <button type="submit"  class="btn btm-lg btn-secondary ">Submit</button>
+                                    <button type="submit"  onclick="validateDetails()" class="btn btm-lg btn-secondary ">Submit</button>
                                 </div>
                                 <p>Already have an account? <a  href="/users/login">login here</a></p>
                         </form>

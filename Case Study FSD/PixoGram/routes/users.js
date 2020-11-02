@@ -43,11 +43,10 @@ router.post('/add-user',uploader.single('profilePicture'), async (req, res) => {
         lastname: req.body.lastName,
         username: req.body.userName,
         emailid: req.body.email,
-        dateofbirth: req.body.dateofBirth,
         password: passwrd,
 
         profilepic: {
-          imgdata: new Buffer.from(fs.readFileSync(req.file), 'base64'),
+          imgdata: new Buffer.from(fs.readFileSync(req.file.path), 'base64'),
           contentType: req.file.mimetype
         }
 
@@ -101,8 +100,7 @@ router.put('/update-user', async (req, res) => {
         firstname: req.body.firstName,
         lastname: req.body.lastName,
         emailid: req.body.email,
-        dateofbirth: req.body.dateofBirth,
-        profilepic: req.body.profilePicture,
+        profilepicture: req.body.profilePicture,
 
       }, { new: true });
   if (!user) return res.status(404).send('The user with the given ID was not found.');

@@ -18,10 +18,6 @@ const user = mongoose.model('user', new mongoose.Schema({
         required: true,
     },
 
-    dateofbirth: {
-        type: String,
-        required: true,
-    },
     password: {
         type: String,
         required: true,
@@ -29,7 +25,7 @@ const user = mongoose.model('user', new mongoose.Schema({
     },
 
 
-    profilepic: {
+    profilepicture: {
         imgdata: Buffer,
         contentType: String,
 
