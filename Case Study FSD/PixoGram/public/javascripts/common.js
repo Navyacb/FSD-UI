@@ -1,6 +1,6 @@
 function getFollowers(userId)
 {
-    alert("inside"+userId);
+    //alert("inside"+userId);
     fetch("/followers/"+userId, {
         method: 'GET',
 
