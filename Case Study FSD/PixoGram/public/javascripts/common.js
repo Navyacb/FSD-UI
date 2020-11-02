@@ -1,9 +1,8 @@
 function getFollowers(userId)
 {
-    //alert("inside"+userId);
+    alert("inside"+userId);
     fetch("/followers/"+userId, {
         method: 'GET',
-
         headers: {
             'Content-type': 'application/json; charset=UTF-8' 
         }
@@ -11,6 +10,7 @@ function getFollowers(userId)
         return res.json();
     }).then(res => {
         console.log(res);
+
         if(res.success){
             varResult = document.getElementById("result");
             let str='';
@@ -27,23 +27,22 @@ function getFollowers(userId)
 }
 
 function getUsers() {
-    alert("inside");
+  //  alert("getting users");
 
 }
 
 
 function unFollow(userId,followUserId) {
 
-    alert("inside");
 
     fetch("/followers/"+userId+"/"+followUserId, {
         method: 'DELETE',
-    
         headers: {
-            'Content-type': 'application/json; charset=UTF-8',
+            'Content-type': 'application/json; charset=UTF-8', // Indicates the content
+            //'Authorization':'jwt '+token
         }
     }).then(res => {
-        console.log(res);
+        console.log(res);// {success: true/false, data: {}, message: ""}
 
         if(res.success){
             window.location.href = '/followers/'+userId;
@@ -53,7 +52,36 @@ function unFollow(userId,followUserId) {
     }).catch(err => {
         alert(err);console.log(err);
     });
+
+
 }
+
+function addFollowers(userId,followeruserId)
+{
+    alert("inside");
+
+    fetch("/followers/add-follower/", {
+        method: 'POST',
+        // body: JSON.stringify({user: document.getElementById.("username").value, password: $("#password").val()}),
+        body: JSON.stringify({userId: userId, followeruserId: followeruserId}),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8', // Indicates the content
+            //'Authorization':'jwt '+token
+        }
+    }).then(res => {
+        console.log(res);// {success: true/false, data: {}, message: ""}
+
+        if(res.success){
+            window.location.href = '/images/';
+        } else {
+            alert(res.message);
+        }
+    }).catch(err => {
+        alert(err);console.log(err);
+    });
+
+}
+
 
 
 function deleteFollowers(userId)
@@ -62,30 +90,36 @@ function deleteFollowers(userId)
 
     fetch("/followers/"+userId, {
         method: 'DELETE',
+        // body: JSON.stringify({user: document.getElementById.("username").value, password: $("#password").val()}),
+        //body: JSON.stringify({username: "pppppppp", followerusername: "poasertpp"}),
         headers: {
-            'Content-type': 'application/json; charset=UTF-8',
+            'Content-type': 'application/json; charset=UTF-8', // Indicates the content
+            //'Authorization':'jwt '+token
         }
     }).then(res => {
-        console.log(res);
+        console.log(res);// {success: true/false, data: {}, message: ""}
 
         if(res.success){
 
             varResult = document.getElementById("result");
             varResult.innerHTML = `No Followers`;
-       
+            //window.location.href = '/images/';
         } else {
             alert(res.message);
         }
     }).catch(err => {
         alert(err);console.log(err);
     });
+
+
+
 }
 
 
 
 function addMedia()
 {
-    alert("inside");
+    //alert("adding media");
 }
 
 
@@ -98,12 +132,13 @@ function deleteMedia(username,id)
         method: 'DELETE',
         headers: {
             'Content-type': 'application/json; charset=UTF-8', 
-          
+       
         }
     }).then(res => {
         console.log("Got response");
         console.log(res);
         window.location.reload();
+
     }).catch(err => {
         alert(err);console.log(err);
     });
@@ -118,5 +153,29 @@ function addComment(userId,mediaId)
 {
     alert("inside"+userId);
     alert("inside"+mediaId);
+/*
+    fetch("/media/add-comments", {
+        method: 'DELETE',
+        // body: JSON.stringify({user: document.getElementById.("username").value, password: $("#password").val()}),
+        body: JSON.stringify({username: "pppppppp", followerusername: "poasertpp"}),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8', // Indicates the content
+            //'Authorization':'jwt '+token
+        }
+    }).then(res => {
+        console.log(res);// {success: true/false, data: {}, message: ""}
+
+        if(res.success){
+            window.location.href = '/media/'+username;
+        } else {
+            alert(res.message);
+        }
+    }).catch(err => {
+        alert(err);console.log(err);
+    });
+
+
+ */
+
 
 }

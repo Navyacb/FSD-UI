@@ -1,3 +1,4 @@
+// using multer to store image in a folder called 'uploads'
 var multer = require('multer');
 
 var storage = multer.diskStorage({

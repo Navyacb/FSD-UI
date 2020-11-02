@@ -6,13 +6,12 @@
             } catch(err)
             {
             }
-            //alert("Inside");
             //return false;
         }
     </script>
 </head>
 <body class="container-fluid">
-<%- include('includes/header.ejs') %>
+<%- include('includes/nav.ejs') %>
 <!-- <div class="row"> -->
     <div id="pageContent" class="pageContent">
         <div class="container" style="width: 600px;">
@@ -38,7 +37,7 @@
                      </div>
                      <button type="submit" onclick="validateDetails()" class="btn btm-lg btn-secondary ">Sign In</button>
                   <div class="etc-login-form">
-                <p>Do not have an account? <a href="/users/register">Sign Up</a></p>
+                <p>Do not have an account? <a href="/users/signup">Sign Up</a></p>
                 </div>
                 <!-- <div class="etc-login-form">
                 <a href="#">Forgot your password?</a>

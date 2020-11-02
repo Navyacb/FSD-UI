@@ -5,8 +5,9 @@ var passport = require('passport');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+
 var fs = require('fs');
-const {user, validate} = require('../models/users');
+const {Customer, validate} = require('../models/users');
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -17,73 +18,79 @@ res.render('login', {data:{ titleView: 'Login Page'}});
 
 });
 
-router.get('/register', function(req, res, next) {
-  res.render('register', {data:{ titleView: 'Register'}});
+router.get('/signup', function(req, res, next) {
+  res.render('signup', {data:{ titleView: 'Sign Up Page'}});
 });
 
 
 router.get('/updateUser', async function(req, res, next) {
   console.log("after authorized");
-  let user = await user.findById({_id:'5f8976531c9e70234003a28a'});
-  console.log('Display user with ID'+ user);
-  res.render('editprofile', {data:{ titleView: 'Update Profile Page',user: user}});
+  let customer = await Customer.findById({_id:'5f8976531c9e70234003a28a'});
+  console.log('Display Customer with ID'+ customer);
+
+  res.render('editprofile', {data:{ titleView: 'Update Profile Page',customer: customer}});
 });
 
 
+
 router.post('/add-user',uploader.single('profilePicture'), async (req, res) => {
+
   console.log("inside post method");
   let passwd='';
   console.log(req.body.passwd);
-    bcrypt.hash(req.body.passwrd, saltRounds, function(err, hash) {
+    bcrypt.hash(req.body.passwd, saltRounds, function(err, hash) {
 
-        passwrd = hash;
-      console.log(passwrd);
-      let user = {
+        passwd = hash;
+      console.log("hashing done");
+      console.log(passwd);
+      let customer = {
         firstname: req.body.firstName,
         lastname: req.body.lastName,
         username: req.body.userName,
         emailid: req.body.email,
-        password: passwrd,
+        dateofbirth: req.body.dateofBirth,
+        password: passwd,
 
+       
         profilepic: {
           imgdata: new Buffer.from(fs.readFileSync(req.file.path), 'base64'),
           contentType: req.file.mimetype
         }
 
       };
-      console.log(user);
-      user.create(user, (err, item) => {
+      console.log("customer initialized");
+      Customer.create(customer, (err, item) => {
         if (err) {
 
           console.log(err);
-          res.render('index', { data:{ titleView: 'Welcome Page'}, data: { user } });
+          res.render('index', { data:{ titleView: 'Welcome Page'}, data: { customer } });
+         
         }
         else {
-
-          res.render('index', { data:{ titleView: 'Welcome Page'}, data: { user } });
-
+        
+          res.render('index', { data:{ titleView: 'Welcome Page'}, data: { customer } });
+        
         }});
 
 
     });
 
 });
-
-
 router.post('/login', async function(req, res, next) {
   let loginid= req.body.loginId;
   let passwd = req.body.passwd;
-  user.findOne({ username: loginid }, function (err, user) {
-    if (!!user) {
-      bcrypt.compare(passwd, user.password, function(err1, result) {
+  Customer.findOne({ username: loginid }, function (err, customer) {
+    if (!!customer) {
+      bcrypt.compare(passwd, customer.password, function(err1, result) {
         if(!!result) {
           let resstr="";
-          resstr=require(__dirname + '/../utility/token')( user , resstr);
-          res.render('index', {data:{ titleView: 'Welcome Page',user: user, token: resstr}});
+          resstr=require(__dirname + '/../utility/token')( customer , resstr);
+          res.render('index', {data:{ titleView: 'Welcome Page',customer: customer, token: resstr}});
 
         }
         else {
           res.render('login', {data:{ titleView: 'User Login Page',errormsg:'Invalid credentials'}});
+
 
         }
     });
@@ -91,20 +98,22 @@ router.post('/login', async function(req, res, next) {
       res.render('login', {data:{ titleView: 'User Login Page',errormsg:'Invalid credentials'}});
 
   });
+
 });
 
 router.put('/update-user', async (req, res) => {
 
-  const user = await user.findByIdAndUpdate(req.params.id,
+  const customer = await Customer.findByIdAndUpdate(req.params.id,
       {
         firstname: req.body.firstName,
         lastname: req.body.lastName,
         emailid: req.body.email,
-        profilepicture: req.body.profilePicture,
+        dateofbirth: req.body.dateofBirth,
+        profilepic: req.body.profilePicture,
 
       }, { new: true });
-  if (!user) return res.status(404).send('The user with the given ID was not found.');
-  res.send(user);
+  if (!customer) return res.status(404).send('The customer with the given ID was not found.');
+  res.send(customer);
   res.redirect('/');
 });
 

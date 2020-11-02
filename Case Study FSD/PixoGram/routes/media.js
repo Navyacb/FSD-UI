@@ -8,27 +8,29 @@ const {Media} = require('../models/media');
 const {Newsfeed} = require('../models/newsfeed');
 const {Comments} = require('../models/comments');
 
-const user = require('../models/users');
+const {Customer} = require('../models/users');
 
 
 router.get('/:userId', async function(req, res, next) {
-    let user = await user.findById({_id:req.params.userId});
+    let customer = await Customer.findById({_id:req.params.userId});
     const medias = await Media.find({userId: req.params.userId});
 
 
     if (medias.length==0) {
         console.log('No Media found');
-        res.render('media', { data:{ titleView: 'Media Page',user: user} });
+        res.render('media', { data:{ titleView: 'Media Page',customer: customer} });
         res.end();
 
     }
     else {
         const comments = await Comments.find({userId: req.params.userId});
         if (comments.length==0)  {
-            res.render('media', { data:{ titleView: 'Media Page',user: user,media: medias} });
+            res.render('media', { data:{ titleView: 'Media Page',customer: customer,media: medias} });
         }else{
-            res.render('media', { data:{ titleView: 'Media Page',user: user,media: medias,comments: comments} });
+            res.render('media', { data:{ titleView: 'Media Page',customer: customer,media: medias,comments: comments} });
         }
+
+
 
     }});
 
@@ -36,7 +38,7 @@ router.get('/:userId', async function(req, res, next) {
 
 
 router.post('/add-media',uploader.single('media'),async function(req, res, next) {
-  
+
 
       let media = {
             userId: req.body.userId,
@@ -51,7 +53,6 @@ router.post('/add-media',uploader.single('media'),async function(req, res, next)
 
       };
 
-  
         Media.create(media, (err, item) => {
             if (err) {
 
@@ -59,7 +60,7 @@ router.post('/add-media',uploader.single('media'),async function(req, res, next)
                 res.end();
             }
             else {
-              
+                // item.save();
                 res.redirect('/media/'+req.body.userId);
             }});
 
@@ -67,15 +68,14 @@ router.post('/add-media',uploader.single('media'),async function(req, res, next)
 
 router.delete('/:id', async function(req, res, next) {
 
-    
+ 
     const result = await Media.deleteMany({_id:req.params.id});
+  
 
     res.json({success: true,message:" Deleted"});
 
-
+    
 });
-
-
 
 router.post('/add-comments',async function(req, res, next) {
     console.log(req.body);
@@ -123,8 +123,11 @@ router.post('/add-comments',async function(req, res, next) {
 router.get('/comments',async function(req, res, next) {
     console.log(req.body);
     console.log("inside get comments");
+   
+
 
 });
+
 
 
 module.exports = router;

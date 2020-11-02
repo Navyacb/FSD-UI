@@ -1,5 +1,6 @@
+//const Joi = require('joi');
 const mongoose = require('mongoose');
-const user = mongoose.model('user', new mongoose.Schema({
+const Customer = mongoose.model('Customer', new mongoose.Schema({
     firstname: {
         type: String,
         required: true,
@@ -25,7 +26,7 @@ const user = mongoose.model('user', new mongoose.Schema({
     },
 
 
-    profilepicture: {
+    profilepic: {
         imgdata: Buffer,
         contentType: String,
 
@@ -35,13 +36,15 @@ const user = mongoose.model('user', new mongoose.Schema({
 
 }));
 
-function validateuser(user) {
+
+
+function validateCustomer(customer) {
     const schema = {
         name: Joi.string().min(5).max(50).required(),
         phone: Joi.string().min(5).max(50).required(),
         isGold: Joi.boolean()
     };
-    return Joi.validate(user, schema);
+    return Joi.validate(customer, schema);
 }
-exports.user = user;
-exports.validate = validateuser;
+exports.Customer = Customer;
+exports.validate = validateCustomer;
