@@ -51,7 +51,7 @@ router.post('/add-user',uploader.single('profilePicture'), async (req, res) => {
         }
 
       };
-
+      console.log("user initialized");
       user.create(user, (err, item) => {
         if (err) {
 
