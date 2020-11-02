@@ -1,22 +1,29 @@
-<div class="container -fuild d-flex bd-highlight bg-dark ">
-    <div class="p-2 flex-grow-1 bd-highlight"><a href="#" class="nav-link text-white font-weight-bolder">Pixogram</a></div>
-
-    <div class="p-2 bd-highlight"><a href="/" class="nav-link text-white">Home</a></div>
-
-    <% if (!!data.customer) { %>
-        <div class="p-2 bd-highlight"><a href="/account/update" class="nav-link text-white">Account</a></div>
-        <div class="p-2 bd-highlight"><a href="/followers/<%= data.customer._id %>" class="nav-link text-white">Followers</a></div>
-        <div class="p-2 bd-highlight"><a href="/upload/<%= data.customer._id %>" class="nav-link text-white">Upload Media</a></div>
-        <div class="p-2 bd-highlight"><a href="/media/<%= data.customer._id %>" class="nav-link text-white">My Media</a></div>
-    <% }
-    else {
-    %>
-        <div class="p-2 bd-highlight"><a href="/users/login" class="nav-link text-white">Login</a></div>
-        <div class="p-2 bd-highlight"><a href="/users/signup" class="nav-link text-white">Register</a></div>
-    <%
-    }%>
-
-
-
-
-</div>
+<div class="headerbar">
+    <div class="row">
+      <div class="headerTitle">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fontBold navHeaderLine" >
+          <div class="container-fluid">
+            <a class="navbar-brand text-white"  href="#" style="padding-left: 40px;"><h1>PixoGram</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav h5" style="padding-left: 1000px;">
+             <li class="col-4 active nav-item "><a class="nav-link" href="/">Home</a></li>
+             <% if (!!data.customer) { %>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/account/update">Account</a></li>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/followers/ <%= data.customer._id %>">Followers</a></li>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/upload/<%= data.customer._id %>">Upload</a></li>
+                <li class="col-4 active nav-item "><a class="nav-link" href="/media/<%= data.customer._id %>">My Media</a></li>
+             <% }
+             else { %>
+              <li class="col-4 active nav-item "><a class="nav-link" href="/users/login">LogIn</a></li>
+              <li class="col-4 active nav-item "><a class="nav-link"  href="/users/signup" >Resgister</a></li>
+            <%}%>
+            </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
